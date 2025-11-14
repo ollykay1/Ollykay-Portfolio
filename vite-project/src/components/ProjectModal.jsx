@@ -1,11 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <motion.div
         className="bg-[#FFF9F0] dark:bg-gray-800 rounded-2xl p-6 max-w-md w-full shadow-lg"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -15,8 +14,20 @@ const ProjectModal = ({ project, onClose }) => {
           {project.title}
         </h2>
 
-        <p className="mt-3 text-gray-600 dark:text-gray-300">
-          {project.description}
+        <p className="mt-3 text-gray-600 dark:text-gray-200 text-sm sm:text-base">
+          {project.id === 3
+            ? (
+              <>Created a tool to analyze passwords. Try it <a 
+                  href="https://password-strength-checker-ruby.vercel.app" 
+                  target="_blank" 
+                  className="text-blue-600 dark:text-blue-400 underline"
+                >
+                  here
+                </a>.
+              </>
+            )
+            : project.description
+          }
         </p>
 
         <button

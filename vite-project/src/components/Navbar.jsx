@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import "./Navbar.css"; // our professional CSS animation
+import "./Navbar.css";
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === "dark");
   const [isOpen, setIsOpen] = useState(false);
 
-  // Apply dark mode to <html>
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -29,24 +26,22 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full p-4 bg-gray-50 dark:bg-gray-800 flex justify-between items-center shadow-md">
-      {/* Logo / Header */}
+    <nav className="w-full px-5 sm:px-8 py-4 bg-[#FAF4E8] dark:bg-[#0d1117] shadow-md fixed top-0 left-0 z-50 flex justify-between items-center transition-all duration-300">
       <motion.h1
-        className="navbar-logo navbar-fade"
+        className="portfolio-shine text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8 }}
       >
-        OLLYKAY-PORTFOLIO
+        OLLYKAY&apos;S PORTFOLIO
       </motion.h1>
 
-      {/* Desktop Nav + Toggle */}
-      <div className="hidden md:flex items-center gap-3">
+      <div className="hidden md:flex items-center gap-5">
         {navLinks.map((link) => (
           <motion.a
             key={link.name}
             href={link.href}
-            className="nav-link text-gray-900 dark:text-gray-100"
+            className="nav-link font-medium"
             whileHover={{ scale: 1.05 }}
           >
             {link.name}
@@ -55,39 +50,37 @@ const Navbar = () => {
 
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className="dark-toggle flex items-center"
+          className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition"
         >
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
       </div>
 
-      {/* Mobile menu toggle */}
       <div className="md:hidden">
         <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile dropdown */}
       {isOpen && (
-        <div className="mobile-menu md:hidden">
+        <motion.div
+          className="absolute top-16 right-5 bg-[#f2e7cf] dark:bg-[#161b22] rounded-xl shadow-lg p-4 flex flex-col gap-3 md:hidden w-52"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="nav-link text-gray-900 dark:text-gray-100"
-            >
+            <a key={link.name} href={link.href} className="nav-link font-medium" onClick={() => setIsOpen(false)}>
               {link.name}
             </a>
           ))}
-
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="dark-toggle flex items-center mt-2"
+            className="mt-2 flex items-center justify-center p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-        </div>
+        </motion.div>
       )}
     </nav>
   );

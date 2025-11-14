@@ -5,20 +5,21 @@ const ProjectCard = ({ project, onOpen }) => {
 
   return (
     <motion.div
-      className="bg-[#F6F1EB] dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 p-6 h-80 flex flex-col justify-between"
-      whileHover={{ scale: 1.03 }}
+      className="project-card cursor-pointer rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-start p-6 h-72 sm:h-80 md:h-80"
+      whileHover={{ scale: 1.02 }}
       onClick={onOpen}
     >
-      <h4 className="text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Project {project.id}
-      </h4>
+      <div className="flex flex-col h-full justify-start">
+        {/* Project Number */}
+        <h4 className="project-number mb-2">
+          Project {project.id}
+        </h4>
 
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center flex-1 flex items-center justify-center">
-        {project.title}
-      </h3>
-
-      {/* Optional bottom section for spacing */}
-      <div className="text-sm text-gray-500 dark:text-gray-400 text-center"></div>
+        {/* Project Title */}
+        <h3 className="project-title">
+          {project.title}
+        </h3>
+      </div>
     </motion.div>
   );
 };
