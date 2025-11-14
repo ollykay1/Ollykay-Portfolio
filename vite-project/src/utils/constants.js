@@ -1,15 +1,15 @@
-export const SITE_NAME = "Cyberflex Portfolio";
-export const SITE_URL = "https://cyberflex-portfolio.vercel.app";
-export const EMAIL = "cyberflex.dev@gmail.com";
+export const SITE_NAME = "Ollykay's Portfolio";
+export const SITE_URL = "https://ollykay-portfolio.vercel.app/";
+export const EMAIL = "ollykay86@gmail.com";
 
 export const SOCIALS = {
-  github: "https://github.com/Cyb3rflex",
-  linkedin: "https://linkedin.com/in/cyberflex",
-  twitter: "https://x.com/Cyb3rflex",
+  github: "https://github.com/ollykay01",
+  // linkedin: "https://linkedin.com/in/ollykay",
+  twitter: "https://x.com/ollykayo7",
 };
 
 export const META = {
-  title: "Cyberflex | Cybersecurity & Full-Stack Developer Portfolio",
+  title: "Ollykay | Cybersecurity & Full-Stack Developer Portfolio",
   description:
     "Explore my cybersecurity and full-stack development projects. I build secure, modern web applications using React, Node.js, and more.",
   keywords: [
