@@ -1,5 +1,19 @@
 /* ==========================
-   Light Mode
+  Light Mode
+========================== */
+
+:root {
+  --dark-project-card-bg: #23475a; /* cool professional deep teal */
+  --dark-project-card-border: #234e5f;
+  --dark-project-card-text: #f9d77e;
+}
+
+/* Ensure dark-mode project cards use the new cool background */
+.dark .project-card {
+  background-color: var(--dark-project-card-bg);
+  border: 1px solid var(--dark-project-card-border);
+  color: var(--dark-project-card-text);
+}
 ========================== */
 
 /* Body background & default text */
@@ -37,11 +51,25 @@ body, main {
   color: #f9e08a; /* attractive gold */
   text-align: center;
 }
-
+/* Project Number - Light Mode */
+.project-number {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #ffffff; /* light color for dark mode */
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.project-number {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #3a2f1c; /* dark brown for light mode */
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
 .dark .project-title {
   font-weight: 800; /* bold */
   font-size: 1.9rem;
-  color: #ffd369; /* slightly brighter gold */
+  color: #cec0a1; /* slightly brighter gold */
   text-align: left;
   line-height: 1.2;
   margin-top: auto; /* keep title at bottom of card */
